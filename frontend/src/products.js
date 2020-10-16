@@ -4,7 +4,7 @@ const products = [
     name: 'Pyjama',
     image: '/images/1.jpg',
     description:
-      'lorem10',
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim voluptatibus animi laboriosam quis harum minima facilis? Provident adipisci odit exercitationem. Voluptas natus veritatis tempora ab numquam vero, ullam qui. Voluptates praesentium itaque deleniti, minus reprehenderit iusto accusantium nisi saepe ipsa? Ducimus optio delectus, obcaecati iste magnam officia laudantium quam.',
     brand: 'Apple',
     category: 'Pyjama',
     price: 89.99,

@@ -1,6 +1,5 @@
 const products = [
   {
-    _id: '1',
     name: 'Pyjama',
     image: '/images/1.jpg',
     description:
@@ -13,7 +12,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '2',
     name: 'Chaussures',
     image: '/images/2.jpg',
     description:
@@ -26,7 +24,6 @@ const products = [
     numReviews: 8,
   },
   {
-    _id: '3',
     name: 'Body fille',
     image: '/images/3.jpg',
     description:
@@ -39,7 +36,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '4',
     name: 'Pyjama bleu garçon',
     image: '/images/4.png',
     description:
@@ -52,7 +48,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '5',
     name: 'Body fille a fleur',
     image: '/images/5.png',
     description:
@@ -65,7 +60,6 @@ const products = [
     numReviews: 10,
   },
   {
-    _id: '6',
     name: 'Lot 3 body',
     image: '/images/6.png',
     description:
@@ -78,7 +72,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '7',
     name: 'Porte bébé marche',
     image: '/images/7.jpg',
     description:

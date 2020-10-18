@@ -23,7 +23,7 @@ router.get('/:id', AsyncHandler(async (req, res) => {
         res.json(product)
     } else {
         res.status(404)
-        throw new Error('Produit non trouvé')
+        throw new Error('Produit non trouvé');
     }
     res.json(product);
 }))

@@ -14,7 +14,6 @@ const App = () => {
       <Header />
       <main className='py-3'>
         <Container>
-          <h1>Bienvenue sur Baby-Hoshi</h1>
           <Route path='/' exact component={HomeScreen} />
           <Route path='/product/:id' component={ProductScreen} />
           <Route path='/cart/:id?' component={CartScreen} />

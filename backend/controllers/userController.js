@@ -1,13 +1,13 @@
-import AsyncHandler from 'express-async-handler';
+import asyncHandler from 'express-async-handler';
 import generateToken from '../utils/generateToken.js';
 import User from '../models/userModel.js';
 
 
-// @desc      Auth user & get token
-// @route     POST /api/users/login
-// @access    Public
-const authUser = AsyncHandler(async (req, res) => {
-    const { email, password } = req.body;
+// @desc    Auth user & get token
+// @route   POST /api/users/login
+// @access  Public
+const authUser = asyncHandler(async (req, res) => {
+    const { email, password } = req.body
 
     const user = await User.findOne({ email })
 
@@ -17,7 +17,7 @@ const authUser = AsyncHandler(async (req, res) => {
             name: user.name,
             email: user.email,
             isAdmin: user.isAdmin,
-            token: generateToken(user._id)
+            token: generateToken(user._id),
         })
     } else {
         res.status(401)
@@ -25,11 +25,12 @@ const authUser = AsyncHandler(async (req, res) => {
     }
 })
 
-// @desc      Register a new user
-// @route     POST /api/users
-// @access    Public
-const registerUser = AsyncHandler(async (req, res) => {
-    const { name, email, password } = req.body;
+
+// @desc    Register a new user
+// @route   POST /api/users
+// @access  Public
+const registerUser = asyncHandler(async (req, res) => {
+    const { name, email, password } = req.body
 
     const userExists = await User.findOne({ email })
 
@@ -41,7 +42,7 @@ const registerUser = AsyncHandler(async (req, res) => {
     const user = await User.create({
         name,
         email,
-        password
+        password,
     })
 
     if (user) {
@@ -50,18 +51,18 @@ const registerUser = AsyncHandler(async (req, res) => {
             name: user.name,
             email: user.email,
             isAdmin: user.isAdmin,
-            token: generateToken(user._id)
+            token: generateToken(user._id),
         })
     } else {
         res.status(400)
-        throw new Error('Données utilisateur invalides')
+        throw new Error('Données invalides')
     }
 })
 
 // @desc      Get user profile
 // @route     GET /api/users/profile
 // @access    Private
-const getUserProfile = AsyncHandler(async (req, res) => {
+const getUserProfile = asyncHandler(async (req, res) => {
     const user = await User.findById(req.user._id)
 
     if (user) {

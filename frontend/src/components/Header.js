@@ -1,8 +1,19 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
+import { logout } from '../actions/userActions';
 
 const Header = () => {
+    const dispatch = useDispatch()
+
+    const userLogin = useSelector(state => state.userLogin)
+    const { userInfo } = userLogin;
+
+    const logoutHandler = () => {
+        dispatch(logout())
+    }
+
     return (
         <header>
             <Navbar bg="primary" variant='dark' expand="lg" collapseOnSelect>
@@ -18,17 +29,26 @@ const Header = () => {
                                     <i className="fas fa-shopping-cart"></i> Panier
                                 </Nav.Link>
                             </LinkContainer>
-                            <LinkContainer to="/login">
-                                <Nav.Link>
-                                    <i className="fas fa-user"></i> Se connecter
+                            {userInfo ? (
+                                <NavDropdown title={userInfo.name} id='username'>
+                                    <LinkContainer to='/profile'>
+                                        <NavDropdown.Item>Profil</NavDropdown.Item>
+                                    </LinkContainer>
+                                    <NavDropdown.Item onClick={logoutHandler}>Se déconnecter</NavDropdown.Item>
+                                </NavDropdown>
+                            ) :
+                                <LinkContainer to="/login">
+                                    <Nav.Link>
+                                        <i className="fas fa-user"></i> Se connecter
                             </Nav.Link>
-                            </LinkContainer>
+                                </LinkContainer>}
+
                         </Nav>
 
                     </Navbar.Collapse>
                 </Container>
-            </Navbar>
-        </header>
+            </Navbar >
+        </header >
     )
 }
 

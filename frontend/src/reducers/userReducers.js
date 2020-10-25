@@ -14,7 +14,7 @@ export const userLoginReducer = (state = {}, action) => {
         case USER_LOGIN_FAIL:
             return {
                 loading: false,
-                error: action.payload
+                error: 'Identifiants et/ou mot de passe incorrectes'
             }
         case USER_LOGOUT:
             return {}

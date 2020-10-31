@@ -15,21 +15,24 @@ const OrderScreen = ({ match }) => {
     const orderId = match.params.id
 
     const [sdkReady, setSdkReady] = useState(false)
+
     const dispatch = useDispatch()
 
-    const orderDetails = useSelector(state => state.orderDetails);
+    const orderDetails = useSelector((state) => state.orderDetails)
     const { order, loading, error } = orderDetails
 
-    const orderPay = useSelector(state => state.orderPay);
+    const orderPay = useSelector((state) => state.orderPay)
     const { loading: loadingPay, success: successPay } = orderPay
 
     if (!loading) {
+        //   Calculate prices
         const addDecimals = (num) => {
             return (Math.round(num * 100) / 100).toFixed(2)
         }
-
+        console.log("Retourne ---->", order.orderItems);
         order.itemsPrice = addDecimals(
-            order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0))
+            order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0)
+        )
     }
 
 
